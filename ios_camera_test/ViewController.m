@@ -9,8 +9,9 @@
 #import "ViewController.h"
 #import "ImageExtractViewController.h"
 #import <CoreMotion/CoreMotion.h>
+#import <MessageUI/MessageUI.h>
 
-@interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
+@interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, MFMailComposeViewControllerDelegate> {
     BOOL _isShooting;
     BOOL _isSelectImage;
     __weak IBOutlet UIImageView* _previewImageView;
@@ -33,7 +34,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    
+
     [_motionManager stopDeviceMotionUpdates];
 }
 /**
@@ -89,6 +90,48 @@
     //    [self presentViewController:ctrl
     //                       animated:YES
     //                     completion:nil];
+}
+
+/**
+*  送信ボタンを押下
+*
+*  @param sender
+*/
+- (IBAction)touchSendButton:(id)sender
+{
+    MFMailComposeViewController* mailer = [[MFMailComposeViewController alloc] init];
+    mailer.mailComposeDelegate = self;
+
+    [mailer setSubject:@"家具設置シミュレータによるメール"]; // 件名
+    NSData* pngData = [[NSData alloc] initWithData:UIImagePNGRepresentation(_previewImageView.image)];
+    [mailer addAttachmentData:pngData
+                     mimeType:@"image/png"
+                     fileName:@"image"];
+    [mailer setMessageBody:@"添付の画像を保存して、下記のURLを押してアプリを開いてください。app_name://mothule.jp/posture"
+                    isHTML:YES];
+    [self presentViewController:mailer
+                       animated:YES
+                     completion:nil];
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    switch (result) {
+    case MFMailComposeResultCancelled:
+        break;
+    case MFMailComposeResultSaved:
+        break;
+    case MFMailComposeResultSent:
+        break;
+    case MFMailComposeResultFailed:
+        break;
+
+    default:
+        break;
+    }
+
+    [self dismissViewControllerAnimated:YES
+                             completion:nil];
 }
 
 /**

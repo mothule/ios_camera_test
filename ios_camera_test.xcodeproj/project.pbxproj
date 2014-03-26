@@ -28,6 +28,7 @@
 		545FCD2E18E32676002A81C6 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 545FCD2D18E32676002A81C6 /* CoreMotion.framework */; };
 		545FCD3118E32FB0002A81C6 /* Posture.m in Sources */ = {isa = PBXBuildFile; fileRef = 545FCD3018E32FB0002A81C6 /* Posture.m */; };
 		545FCD3218E32FB0002A81C6 /* Posture.m in Sources */ = {isa = PBXBuildFile; fileRef = 545FCD3018E32FB0002A81C6 /* Posture.m */; };
+		545FCD3418E33882002A81C6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 545FCD3318E33882002A81C6 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		545FCD2D18E32676002A81C6 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		545FCD2F18E32FB0002A81C6 /* Posture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Posture.h; sourceTree = "<group>"; };
 		545FCD3018E32FB0002A81C6 /* Posture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Posture.m; sourceTree = "<group>"; };
+		545FCD3318E33882002A81C6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				545FCD3418E33882002A81C6 /* MessageUI.framework in Frameworks */,
 				545FCD2E18E32676002A81C6 /* CoreMotion.framework in Frameworks */,
 				2F4EB35918E26E05004FB168 /* CoreGraphics.framework in Frameworks */,
 				2F4EB35B18E26E05004FB168 /* UIKit.framework in Frameworks */,
@@ -119,6 +122,7 @@
 		2F4EB35518E26E05004FB168 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				545FCD3318E33882002A81C6 /* MessageUI.framework */,
 				545FCD2D18E32676002A81C6 /* CoreMotion.framework */,
 				2F4EB35618E26E05004FB168 /* Foundation.framework */,
 				2F4EB35818E26E05004FB168 /* CoreGraphics.framework */,
