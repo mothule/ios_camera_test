@@ -21,6 +21,7 @@
 		2F4EB37818E26E05004FB168 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4EB35A18E26E05004FB168 /* UIKit.framework */; };
 		2F4EB38018E26E05004FB168 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F4EB37E18E26E05004FB168 /* InfoPlist.strings */; };
 		2F4EB38218E26E05004FB168 /* ios_camera_testTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4EB38118E26E05004FB168 /* ios_camera_testTests.m */; };
+		2F8ACA1918E2797500EF1B8B /* ImageExtractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8ACA1818E2797500EF1B8B /* ImageExtractViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		2F4EB37D18E26E05004FB168 /* ios_camera_testTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ios_camera_testTests-Info.plist"; sourceTree = "<group>"; };
 		2F4EB37F18E26E05004FB168 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2F4EB38118E26E05004FB168 /* ios_camera_testTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios_camera_testTests.m; sourceTree = "<group>"; };
+		2F8ACA1718E2797500EF1B8B /* ImageExtractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageExtractViewController.h; sourceTree = "<group>"; };
+		2F8ACA1818E2797500EF1B8B /* ImageExtractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageExtractViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +120,8 @@
 				2F4EB36818E26E05004FB168 /* Main.storyboard */,
 				2F4EB36B18E26E05004FB168 /* ViewController.h */,
 				2F4EB36C18E26E05004FB168 /* ViewController.m */,
+				2F8ACA1718E2797500EF1B8B /* ImageExtractViewController.h */,
+				2F8ACA1818E2797500EF1B8B /* ImageExtractViewController.m */,
 				2F4EB36E18E26E05004FB168 /* Images.xcassets */,
 				2F4EB35D18E26E05004FB168 /* Supporting Files */,
 			);
@@ -249,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F8ACA1918E2797500EF1B8B /* ImageExtractViewController.m in Sources */,
 				2F4EB36D18E26E05004FB168 /* ViewController.m in Sources */,
 				2F4EB36718E26E05004FB168 /* AppDelegate.m in Sources */,
 				2F4EB36318E26E05004FB168 /* main.m in Sources */,
@@ -456,6 +462,7 @@
 				2F4EB38718E26E05004FB168 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2F4EB38818E26E05004FB168 /* Build configuration list for PBXNativeTarget "ios_camera_testTests" */ = {
 			isa = XCConfigurationList;
@@ -464,6 +471,7 @@
 				2F4EB38A18E26E05004FB168 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
