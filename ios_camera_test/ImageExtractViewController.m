@@ -7,11 +7,15 @@
 //
 
 #import "ImageExtractViewController.h"
+#import "ExtractPreviewView.h"
 
 @interface ImageExtractViewController () {
     CGPoint _beginPoint;
     CGPoint _endPoint;
     BOOL _isDragging;
+    __weak IBOutlet UIImageView* _targetImageView;
+
+    __weak IBOutlet ExtractPreviewView* _extractPreviewView;
 }
 
 @end
@@ -31,7 +35,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+
+    // 呼び出し元から受け取った画像を表示
+    [_targetImageView setImage:self.editTargetImage];
 }
 
 /**
@@ -47,6 +53,13 @@
     _beginPoint = p;
     _isDragging = YES;
 }
+- (void)touchesMoved:(NSSet*)touches withEvent:(UIEvent*)event
+{
+    CGPoint p = [[touches anyObject] locationInView:self.view];
+    _endPoint = p;
+
+    [self displayPreview];
+}
 /**
  *  タッチ終了
  *
@@ -59,6 +72,77 @@
     NSLog(@"Goal:x:%.1f y:%.1f", p.x, p.y);
     _endPoint = p;
     _isDragging = NO;
+
+    [self displayPreview];
+}
+
+- (IBAction)touchCircleButton:(id)sender
+{
+}
+
+- (IBAction)touchRectButton:(id)sender
+{
+}
+- (IBAction)touchEraserButton:(id)sender
+{
+    [self dismissViewControllerAnimated:YES
+                             completion:nil];
+}
+
+- (IBAction)touchDoneButton:(id)sender
+{
+    UIGraphicsBeginImageContextWithOptions(_targetImageView.bounds.size, NO, 0.0);
+    CGContextRef c = UIGraphicsGetCurrentContext();
+
+    // 背景を白で塗りつぶし
+    CGContextSetFillColorWithColor(c, [[UIColor whiteColor] CGColor]);
+    CGContextFillRect(c, _extractPreviewView.bounds);
+
+    // 中央に黒円を塗りつぶし描画
+    CGContextSetFillColorWithColor(c, [[UIColor blackColor] CGColor]);
+    CGContextFillEllipseInRect(c, CGRectMake(_extractPreviewView.begin.x, _extractPreviewView.begin.y, _extractPreviewView.end.x - _extractPreviewView.begin.x, _extractPreviewView.end.y - _extractPreviewView.begin.y));
+
+    // サーフェイスをUIImage
+    UIImage* maskImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    CGImageRef m = maskImage.CGImage;
+    //    CGImageRef mask = CGImageMaskCreate(_targetImageView.bounds.size.height, _targetImageView.bounds.size.height, CGImageGetBitsPerComponent(m), CGImageGetBitsPerPixel(m), CGImageGetBytesPerRow(m), CGImageGetDataProvider(m), NULL, false);
+    CGImageRef mask = CGImageMaskCreate(CGImageGetWidth(m), CGImageGetHeight(m), CGImageGetBitsPerComponent(m), CGImageGetBitsPerPixel(m), CGImageGetBytesPerRow(m), CGImageGetDataProvider(m), NULL, false);
+    CGImageRef masked = CGImageCreateWithMask(self.editTargetImage.CGImage, mask);
+    UIImage* maskedImage = [UIImage imageWithCGImage:masked];
+    CGImageRelease(mask);
+    CGImageRelease(masked);
+
+    //    self.editTargetImage = image;
+
+    [_targetImageView setImage:maskedImage];
+
+    // TODO:透過あり画像が保存されていない
+
+    // マスク適合済みUIImageをアルバムに保存
+    UIImageWriteToSavedPhotosAlbum(maskedImage, self, @selector(savingImageIsFinished:
+                                                             didFinishSavingWithError:
+                                                                          contextInfo:),
+                                   nil);
+
+    //    [self dismissViewControllerAnimated:YES
+    //                             completion:nil];
+}
+
+// 保存が完了したら呼ばれるメソッド
+- (void)savingImageIsFinished:(UIImage*)image
+     didFinishSavingWithError:(NSError*)error
+                  contextInfo:(void*)contextInfo
+{
+}
+
+- (void)displayPreview
+{
+    _extractPreviewView.begin = _beginPoint;
+    _extractPreviewView.end = _endPoint;
+
+    [_extractPreviewView setNeedsDisplay];
 }
 
 - (void)didReceiveMemoryWarning

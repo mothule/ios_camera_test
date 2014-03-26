@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F1C14F218E2918800526418 /* ExtractPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1C14F118E2918800526418 /* ExtractPreviewView.m */; };
+		2F1C14F418E2963E00526418 /* eraser@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1C14F318E2963E00526418 /* eraser@2x.png */; };
+		2F1C14F718E297FD00526418 /* ExtractPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1C14F618E297FD00526418 /* ExtractPreview.m */; };
 		2F4EB35718E26E05004FB168 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4EB35618E26E05004FB168 /* Foundation.framework */; };
 		2F4EB35918E26E05004FB168 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4EB35818E26E05004FB168 /* CoreGraphics.framework */; };
 		2F4EB35B18E26E05004FB168 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4EB35A18E26E05004FB168 /* UIKit.framework */; };
@@ -35,6 +38,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F1C14F018E2918800526418 /* ExtractPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtractPreviewView.h; sourceTree = "<group>"; };
+		2F1C14F118E2918800526418 /* ExtractPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtractPreviewView.m; sourceTree = "<group>"; };
+		2F1C14F318E2963E00526418 /* eraser@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eraser@2x.png"; sourceTree = "<group>"; };
+		2F1C14F518E297FD00526418 /* ExtractPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtractPreview.h; sourceTree = "<group>"; };
+		2F1C14F618E297FD00526418 /* ExtractPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtractPreview.m; sourceTree = "<group>"; };
 		2F4EB35318E26E05004FB168 /* ios_camera_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_camera_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F4EB35618E26E05004FB168 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2F4EB35818E26E05004FB168 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -124,6 +132,10 @@
 				2F8ACA1818E2797500EF1B8B /* ImageExtractViewController.m */,
 				2F4EB36E18E26E05004FB168 /* Images.xcassets */,
 				2F4EB35D18E26E05004FB168 /* Supporting Files */,
+				2F1C14F018E2918800526418 /* ExtractPreviewView.h */,
+				2F1C14F118E2918800526418 /* ExtractPreviewView.m */,
+				2F1C14F518E297FD00526418 /* ExtractPreview.h */,
+				2F1C14F618E297FD00526418 /* ExtractPreview.m */,
 			);
 			path = ios_camera_test;
 			sourceTree = "<group>";
@@ -131,6 +143,7 @@
 		2F4EB35D18E26E05004FB168 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2F1C14F318E2963E00526418 /* eraser@2x.png */,
 				2F4EB35E18E26E05004FB168 /* ios_camera_test-Info.plist */,
 				2F4EB35F18E26E05004FB168 /* InfoPlist.strings */,
 				2F4EB36218E26E05004FB168 /* main.m */,
@@ -233,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F1C14F418E2963E00526418 /* eraser@2x.png in Resources */,
 				2F4EB36F18E26E05004FB168 /* Images.xcassets in Resources */,
 				2F4EB36118E26E05004FB168 /* InfoPlist.strings in Resources */,
 				2F4EB36A18E26E05004FB168 /* Main.storyboard in Resources */,
@@ -254,7 +268,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F1C14F718E297FD00526418 /* ExtractPreview.m in Sources */,
 				2F8ACA1918E2797500EF1B8B /* ImageExtractViewController.m in Sources */,
+				2F1C14F218E2918800526418 /* ExtractPreviewView.m in Sources */,
 				2F4EB36D18E26E05004FB168 /* ViewController.m in Sources */,
 				2F4EB36718E26E05004FB168 /* AppDelegate.m in Sources */,
 				2F4EB36318E26E05004FB168 /* main.m in Sources */,

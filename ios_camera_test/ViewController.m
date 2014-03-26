@@ -63,13 +63,13 @@
  */
 - (IBAction)onTouchEditImageButton:(id)sender
 {
-    ImageExtractViewController* ctrl = [[ImageExtractViewController alloc] init];
-    ctrl.editTargetImage = _previewImageView.image;
-
-    NSLog(@"画像編集画面の表示");
-    [self presentViewController:ctrl
-                       animated:YES
-                     completion:nil];
+    //    ImageExtractViewController* ctrl = [[ImageExtractViewController alloc] init];
+    //    ctrl.editTargetImage = _previewImageView.image;
+    //
+    //    NSLog(@"画像編集画面の表示");
+    //    [self presentViewController:ctrl
+    //                       animated:YES
+    //                     completion:nil];
 }
 
 /**
@@ -144,6 +144,12 @@
     } else {
         // 保存成功時の処理
     }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
+{
+    ImageExtractViewController* ctrl = [segue destinationViewController];
+    ctrl.editTargetImage = _previewImageView.image;
 }
 
 - (void)didReceiveMemoryWarning
