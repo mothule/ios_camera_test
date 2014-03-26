@@ -25,6 +25,9 @@
 		2F4EB38018E26E05004FB168 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F4EB37E18E26E05004FB168 /* InfoPlist.strings */; };
 		2F4EB38218E26E05004FB168 /* ios_camera_testTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4EB38118E26E05004FB168 /* ios_camera_testTests.m */; };
 		2F8ACA1918E2797500EF1B8B /* ImageExtractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8ACA1818E2797500EF1B8B /* ImageExtractViewController.m */; };
+		545FCD2E18E32676002A81C6 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 545FCD2D18E32676002A81C6 /* CoreMotion.framework */; };
+		545FCD3118E32FB0002A81C6 /* Posture.m in Sources */ = {isa = PBXBuildFile; fileRef = 545FCD3018E32FB0002A81C6 /* Posture.m */; };
+		545FCD3218E32FB0002A81C6 /* Posture.m in Sources */ = {isa = PBXBuildFile; fileRef = 545FCD3018E32FB0002A81C6 /* Posture.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +67,9 @@
 		2F4EB38118E26E05004FB168 /* ios_camera_testTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios_camera_testTests.m; sourceTree = "<group>"; };
 		2F8ACA1718E2797500EF1B8B /* ImageExtractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageExtractViewController.h; sourceTree = "<group>"; };
 		2F8ACA1818E2797500EF1B8B /* ImageExtractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageExtractViewController.m; sourceTree = "<group>"; };
+		545FCD2D18E32676002A81C6 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		545FCD2F18E32FB0002A81C6 /* Posture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Posture.h; sourceTree = "<group>"; };
+		545FCD3018E32FB0002A81C6 /* Posture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Posture.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				545FCD2E18E32676002A81C6 /* CoreMotion.framework in Frameworks */,
 				2F4EB35918E26E05004FB168 /* CoreGraphics.framework in Frameworks */,
 				2F4EB35B18E26E05004FB168 /* UIKit.framework in Frameworks */,
 				2F4EB35718E26E05004FB168 /* Foundation.framework in Frameworks */,
@@ -112,6 +119,7 @@
 		2F4EB35518E26E05004FB168 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				545FCD2D18E32676002A81C6 /* CoreMotion.framework */,
 				2F4EB35618E26E05004FB168 /* Foundation.framework */,
 				2F4EB35818E26E05004FB168 /* CoreGraphics.framework */,
 				2F4EB35A18E26E05004FB168 /* UIKit.framework */,
@@ -136,6 +144,8 @@
 				2F1C14F118E2918800526418 /* ExtractPreviewView.m */,
 				2F1C14F518E297FD00526418 /* ExtractPreview.h */,
 				2F1C14F618E297FD00526418 /* ExtractPreview.m */,
+				545FCD2F18E32FB0002A81C6 /* Posture.h */,
+				545FCD3018E32FB0002A81C6 /* Posture.m */,
 			);
 			path = ios_camera_test;
 			sourceTree = "<group>";
@@ -268,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				545FCD3118E32FB0002A81C6 /* Posture.m in Sources */,
 				2F1C14F718E297FD00526418 /* ExtractPreview.m in Sources */,
 				2F8ACA1918E2797500EF1B8B /* ImageExtractViewController.m in Sources */,
 				2F1C14F218E2918800526418 /* ExtractPreviewView.m in Sources */,
@@ -281,6 +292,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				545FCD3218E32FB0002A81C6 /* Posture.m in Sources */,
 				2F4EB38218E26E05004FB168 /* ios_camera_testTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,11 +8,14 @@
 
 #import "ViewController.h"
 #import "ImageExtractViewController.h"
+#import <CoreMotion/CoreMotion.h>
 
 @interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
     BOOL _isShooting;
     BOOL _isSelectImage;
     __weak IBOutlet UIImageView* _previewImageView;
+
+    CMMotionManager* _motionManager;
 }
 
 @end
@@ -22,13 +25,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    _motionManager = [[CMMotionManager alloc] init];
+    _motionManager.deviceMotionUpdateInterval = 1.0 / 1.0; // 1Hzサンプリング
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-
     [super viewDidAppear:animated];
+    
+    [_motionManager stopDeviceMotionUpdates];
 }
 /**
  *  撮影ボタン押下
@@ -37,8 +43,19 @@
  */
 - (IBAction)onTouchShootingButton:(id)sender
 {
+    // ジャイロデータ取得開始
+    NSOperationQueue* queue = [[NSOperationQueue alloc] init];
+    [_motionManager startDeviceMotionUpdatesToQueue:queue
+                                        withHandler:^(CMDeviceMotion* motion, NSError* error) {
+                                            double pitchDegree = motion.attitude.pitch * 180.0 / M_PI;
+                                            double rollDegree = motion.attitude.roll * 180.0 / M_PI;
+                                            double yawDegree = motion.attitude.yaw * 180.0 / M_PI;
+                                            NSLog(@"Yaw %03.1f Pitch:%03.1f Roll:%03.1f", yawDegree, pitchDegree, rollDegree);
+                                        }];
+
     [self showUIImagePicker];
 }
+
 /**
  *  画像選択ボタン押下
  *
@@ -54,7 +71,9 @@
     [picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     [self presentViewController:picker
                        animated:YES
-                     completion:nil];
+                     completion:^{
+                         NSLog(@"Complete presentViewController of UIImagePickerController");
+                     }];
 }
 /**
  *  画像編集ボタン押下
