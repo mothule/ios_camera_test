@@ -10,6 +10,7 @@
 		2F1C14F218E2918800526418 /* ExtractPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1C14F118E2918800526418 /* ExtractPreviewView.m */; };
 		2F1C14F418E2963E00526418 /* eraser@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1C14F318E2963E00526418 /* eraser@2x.png */; };
 		2F1C14F718E297FD00526418 /* ExtractPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1C14F618E297FD00526418 /* ExtractPreview.m */; };
+		2F379BE618E2EA25005F12C7 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F379BE518E2EA25005F12C7 /* AssetsLibrary.framework */; };
 		2F4EB35718E26E05004FB168 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4EB35618E26E05004FB168 /* Foundation.framework */; };
 		2F4EB35918E26E05004FB168 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4EB35818E26E05004FB168 /* CoreGraphics.framework */; };
 		2F4EB35B18E26E05004FB168 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4EB35A18E26E05004FB168 /* UIKit.framework */; };
@@ -43,6 +44,7 @@
 		2F1C14F318E2963E00526418 /* eraser@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eraser@2x.png"; sourceTree = "<group>"; };
 		2F1C14F518E297FD00526418 /* ExtractPreview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtractPreview.h; sourceTree = "<group>"; };
 		2F1C14F618E297FD00526418 /* ExtractPreview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtractPreview.m; sourceTree = "<group>"; };
+		2F379BE518E2EA25005F12C7 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		2F4EB35318E26E05004FB168 /* ios_camera_test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_camera_test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F4EB35618E26E05004FB168 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2F4EB35818E26E05004FB168 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -71,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F379BE618E2EA25005F12C7 /* AssetsLibrary.framework in Frameworks */,
 				2F4EB35918E26E05004FB168 /* CoreGraphics.framework in Frameworks */,
 				2F4EB35B18E26E05004FB168 /* UIKit.framework in Frameworks */,
 				2F4EB35718E26E05004FB168 /* Foundation.framework in Frameworks */,
@@ -90,6 +93,38 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F379BE118E2E6F5005F12C7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		2F379BE218E2E6FB005F12C7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2F4EB36518E26E05004FB168 /* AppDelegate.h */,
+				2F4EB36618E26E05004FB168 /* AppDelegate.m */,
+				2F4EB36818E26E05004FB168 /* Main.storyboard */,
+				2F4EB36B18E26E05004FB168 /* ViewController.h */,
+				2F4EB36C18E26E05004FB168 /* ViewController.m */,
+				2F8ACA1718E2797500EF1B8B /* ImageExtractViewController.h */,
+				2F8ACA1818E2797500EF1B8B /* ImageExtractViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		2F379BE318E2E702005F12C7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F1C14F018E2918800526418 /* ExtractPreviewView.h */,
+				2F1C14F118E2918800526418 /* ExtractPreviewView.m */,
+				2F1C14F518E297FD00526418 /* ExtractPreview.h */,
+				2F1C14F618E297FD00526418 /* ExtractPreview.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		2F4EB34A18E26E05004FB168 = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +147,7 @@
 		2F4EB35518E26E05004FB168 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2F379BE518E2EA25005F12C7 /* AssetsLibrary.framework */,
 				2F4EB35618E26E05004FB168 /* Foundation.framework */,
 				2F4EB35818E26E05004FB168 /* CoreGraphics.framework */,
 				2F4EB35A18E26E05004FB168 /* UIKit.framework */,
@@ -123,19 +159,11 @@
 		2F4EB35C18E26E05004FB168 /* ios_camera_test */ = {
 			isa = PBXGroup;
 			children = (
-				2F4EB36518E26E05004FB168 /* AppDelegate.h */,
-				2F4EB36618E26E05004FB168 /* AppDelegate.m */,
-				2F4EB36818E26E05004FB168 /* Main.storyboard */,
-				2F4EB36B18E26E05004FB168 /* ViewController.h */,
-				2F4EB36C18E26E05004FB168 /* ViewController.m */,
-				2F8ACA1718E2797500EF1B8B /* ImageExtractViewController.h */,
-				2F8ACA1818E2797500EF1B8B /* ImageExtractViewController.m */,
 				2F4EB36E18E26E05004FB168 /* Images.xcassets */,
+				2F379BE118E2E6F5005F12C7 /* Models */,
+				2F379BE218E2E6FB005F12C7 /* Controllers */,
+				2F379BE318E2E702005F12C7 /* Views */,
 				2F4EB35D18E26E05004FB168 /* Supporting Files */,
-				2F1C14F018E2918800526418 /* ExtractPreviewView.h */,
-				2F1C14F118E2918800526418 /* ExtractPreviewView.m */,
-				2F1C14F518E297FD00526418 /* ExtractPreview.h */,
-				2F1C14F618E297FD00526418 /* ExtractPreview.m */,
 			);
 			path = ios_camera_test;
 			sourceTree = "<group>";

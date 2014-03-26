@@ -8,6 +8,7 @@
 
 #import "ImageExtractViewController.h"
 #import "ExtractPreviewView.h"
+#import <AssetsLibrary/AssetsLibrary.h>
 
 @interface ImageExtractViewController () {
     CGPoint _beginPoint;
@@ -107,7 +108,6 @@
     UIGraphicsEndImageContext();
 
     CGImageRef m = maskImage.CGImage;
-    //    CGImageRef mask = CGImageMaskCreate(_targetImageView.bounds.size.height, _targetImageView.bounds.size.height, CGImageGetBitsPerComponent(m), CGImageGetBitsPerPixel(m), CGImageGetBytesPerRow(m), CGImageGetDataProvider(m), NULL, false);
     CGImageRef mask = CGImageMaskCreate(CGImageGetWidth(m), CGImageGetHeight(m), CGImageGetBitsPerComponent(m), CGImageGetBitsPerPixel(m), CGImageGetBytesPerRow(m), CGImageGetDataProvider(m), NULL, false);
     CGImageRef masked = CGImageCreateWithMask(self.editTargetImage.CGImage, mask);
     UIImage* maskedImage = [UIImage imageWithCGImage:masked];
@@ -116,18 +116,32 @@
 
     //    self.editTargetImage = image;
 
+    // iOS7だと透過バグがあるためImageViewに貼り付け直し再生成することで対応する.
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:maskedImage];
+    imageView.backgroundColor = [UIColor clearColor];
+    UIGraphicsBeginImageContext(imageView.frame.size);
+    [imageView.layer renderInContext:UIGraphicsGetCurrentContext()];
+    maskedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+
+    // マスク適用後のイメージを表示
     [_targetImageView setImage:maskedImage];
 
-    // TODO:透過あり画像が保存されていない
+    // マスク適用後のイメージを保存
+    NSData* pngData = [[NSData alloc] initWithData:UIImagePNGRepresentation(maskedImage)];
+    ALAssetsLibrary* al = [[ALAssetsLibrary alloc] init];
+    [al writeImageDataToSavedPhotosAlbum:pngData
+                                metadata:nil
+                         completionBlock:^(NSURL* assetURL, NSError* error) {
+                             NSLog(@"Complete保存処理");
+                         }];
 
+    // iOS7だとマスク処理したイメージを保存しても透過処理が入らない不具合がある.
     // マスク適合済みUIImageをアルバムに保存
-    UIImageWriteToSavedPhotosAlbum(maskedImage, self, @selector(savingImageIsFinished:
-                                                             didFinishSavingWithError:
-                                                                          contextInfo:),
-                                   nil);
-
-    //    [self dismissViewControllerAnimated:YES
-    //                             completion:nil];
+    //    UIImageWriteToSavedPhotosAlbum(maskedImage, self, @selector(savingImageIsFinished:
+    //                                                             didFinishSavingWithError:
+    //                                                                          contextInfo:),
+    //                                   nil);
 }
 
 // 保存が完了したら呼ばれるメソッド
