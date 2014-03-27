@@ -8,11 +8,15 @@
 
 #import "ViewController.h"
 #import "ImageExtractViewController.h"
+#import <CoreMotion/CoreMotion.h>
+#import <MessageUI/MessageUI.h>
 
-@interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
+@interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, MFMailComposeViewControllerDelegate> {
     BOOL _isShooting;
     BOOL _isSelectImage;
     __weak IBOutlet UIImageView* _previewImageView;
+
+    CMMotionManager* _motionManager;
 }
 
 @end
@@ -22,13 +26,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    _motionManager = [[CMMotionManager alloc] init];
+    _motionManager.deviceMotionUpdateInterval = 1.0 / 1.0; // 1Hzサンプリング
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-
     [super viewDidAppear:animated];
+
+    [_motionManager stopDeviceMotionUpdates];
 }
 /**
  *  撮影ボタン押下
@@ -37,8 +44,19 @@
  */
 - (IBAction)onTouchShootingButton:(id)sender
 {
+    // ジャイロデータ取得開始
+    NSOperationQueue* queue = [[NSOperationQueue alloc] init];
+    [_motionManager startDeviceMotionUpdatesToQueue:queue
+                                        withHandler:^(CMDeviceMotion* motion, NSError* error) {
+                                            double pitchDegree = motion.attitude.pitch * 180.0 / M_PI;
+                                            double rollDegree = motion.attitude.roll * 180.0 / M_PI;
+                                            double yawDegree = motion.attitude.yaw * 180.0 / M_PI;
+                                            NSLog(@"Yaw %03.1f Pitch:%03.1f Roll:%03.1f", yawDegree, pitchDegree, rollDegree);
+                                        }];
+
     [self showUIImagePicker];
 }
+
 /**
  *  画像選択ボタン押下
  *
@@ -54,7 +72,9 @@
     [picker setSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     [self presentViewController:picker
                        animated:YES
-                     completion:nil];
+                     completion:^{
+                         NSLog(@"Complete presentViewController of UIImagePickerController");
+                     }];
 }
 /**
  *  画像編集ボタン押下
@@ -70,6 +90,48 @@
     //    [self presentViewController:ctrl
     //                       animated:YES
     //                     completion:nil];
+}
+
+/**
+*  送信ボタンを押下
+*
+*  @param sender
+*/
+- (IBAction)touchSendButton:(id)sender
+{
+    MFMailComposeViewController* mailer = [[MFMailComposeViewController alloc] init];
+    mailer.mailComposeDelegate = self;
+
+    [mailer setSubject:@"家具設置シミュレータによるメール"]; // 件名
+    NSData* pngData = [[NSData alloc] initWithData:UIImagePNGRepresentation(_previewImageView.image)];
+    [mailer addAttachmentData:pngData
+                     mimeType:@"image/png"
+                     fileName:@"image"];
+    [mailer setMessageBody:@"添付の画像を保存して、下記のURLを押してアプリを開いてください。app_name://mothule.jp/posture"
+                    isHTML:YES];
+    [self presentViewController:mailer
+                       animated:YES
+                     completion:nil];
+}
+
+- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error
+{
+    switch (result) {
+    case MFMailComposeResultCancelled:
+        break;
+    case MFMailComposeResultSaved:
+        break;
+    case MFMailComposeResultSent:
+        break;
+    case MFMailComposeResultFailed:
+        break;
+
+    default:
+        break;
+    }
+
+    [self dismissViewControllerAnimated:YES
+                             completion:nil];
 }
 
 /**
