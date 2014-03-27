@@ -25,6 +25,8 @@
 		2F4EB37818E26E05004FB168 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F4EB35A18E26E05004FB168 /* UIKit.framework */; };
 		2F4EB38018E26E05004FB168 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2F4EB37E18E26E05004FB168 /* InfoPlist.strings */; };
 		2F4EB38218E26E05004FB168 /* ios_camera_testTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F4EB38118E26E05004FB168 /* ios_camera_testTests.m */; };
+		2F76538B18E3E2E800859D0F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F76538A18E3E2E800859D0F /* AVFoundation.framework */; };
+		2F76538E18E3E3A800859D0F /* PlaceSimulateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F76538D18E3E3A800859D0F /* PlaceSimulateViewController.m */; };
 		2F8ACA1918E2797500EF1B8B /* ImageExtractViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F8ACA1818E2797500EF1B8B /* ImageExtractViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +66,9 @@
 		2F4EB37D18E26E05004FB168 /* ios_camera_testTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ios_camera_testTests-Info.plist"; sourceTree = "<group>"; };
 		2F4EB37F18E26E05004FB168 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		2F4EB38118E26E05004FB168 /* ios_camera_testTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ios_camera_testTests.m; sourceTree = "<group>"; };
+		2F76538A18E3E2E800859D0F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		2F76538C18E3E3A800859D0F /* PlaceSimulateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceSimulateViewController.h; sourceTree = "<group>"; };
+		2F76538D18E3E3A800859D0F /* PlaceSimulateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceSimulateViewController.m; sourceTree = "<group>"; };
 		2F8ACA1718E2797500EF1B8B /* ImageExtractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageExtractViewController.h; sourceTree = "<group>"; };
 		2F8ACA1818E2797500EF1B8B /* ImageExtractViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageExtractViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -73,6 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F76538B18E3E2E800859D0F /* AVFoundation.framework in Frameworks */,
 				2F379BE618E2EA25005F12C7 /* AssetsLibrary.framework in Frameworks */,
 				2F4EB35918E26E05004FB168 /* CoreGraphics.framework in Frameworks */,
 				2F4EB35B18E26E05004FB168 /* UIKit.framework in Frameworks */,
@@ -110,6 +116,8 @@
 				2F4EB36C18E26E05004FB168 /* ViewController.m */,
 				2F8ACA1718E2797500EF1B8B /* ImageExtractViewController.h */,
 				2F8ACA1818E2797500EF1B8B /* ImageExtractViewController.m */,
+				2F76538C18E3E3A800859D0F /* PlaceSimulateViewController.h */,
+				2F76538D18E3E3A800859D0F /* PlaceSimulateViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -147,6 +155,7 @@
 		2F4EB35518E26E05004FB168 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2F76538A18E3E2E800859D0F /* AVFoundation.framework */,
 				2F379BE518E2EA25005F12C7 /* AssetsLibrary.framework */,
 				2F4EB35618E26E05004FB168 /* Foundation.framework */,
 				2F4EB35818E26E05004FB168 /* CoreGraphics.framework */,
@@ -302,6 +311,7 @@
 				2F4EB36D18E26E05004FB168 /* ViewController.m in Sources */,
 				2F4EB36718E26E05004FB168 /* AppDelegate.m in Sources */,
 				2F4EB36318E26E05004FB168 /* main.m in Sources */,
+				2F76538E18E3E3A800859D0F /* PlaceSimulateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

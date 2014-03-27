@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "ImageExtractViewController.h"
+#import "PlaceSimulateViewController.h"
 
 @interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate> {
     BOOL _isShooting;
@@ -148,8 +149,14 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
-    ImageExtractViewController* ctrl = [segue destinationViewController];
-    ctrl.editTargetImage = _previewImageView.image;
+    if ([segue.identifier isEqualToString:@"edit"]) {
+        ImageExtractViewController* ctrl = [segue destinationViewController];
+        ctrl.editTargetImage = _previewImageView.image;
+
+    } else if ([segue.identifier isEqualToString:@"simulate"]) {
+        PlaceSimulateViewController* ctrl = [segue destinationViewController];
+        ctrl.combineImage = _previewImageView.image;
+    }
 }
 
 - (void)didReceiveMemoryWarning
