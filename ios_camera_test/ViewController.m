@@ -211,6 +211,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
+    NSLog(@"Segue Name is %@", segue.identifier);
     if ([segue.identifier isEqualToString:@"edit"]) {
         ImageExtractViewController* ctrl = [segue destinationViewController];
         ctrl.editTargetImage = _previewImageView.image;
