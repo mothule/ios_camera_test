@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Posture;
 @interface PlaceSimulateViewController : UIViewController
 
 @property (nonatomic, strong) UIImage* combineImage;
+@property (nonatomic, weak) Posture* posture;
 
 @end

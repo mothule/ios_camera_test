@@ -8,10 +8,12 @@
 
 #import "PlaceSimulateViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "Posture.h"
 
 @interface PlaceSimulateViewController () {
     __weak IBOutlet UIView* _previewView;
     __weak IBOutlet UIImageView* _combineSourceImageView;
+    __weak IBOutlet UILabel* _postureLabel;
 }
 
 @property (strong, nonatomic) AVCaptureDeviceInput* videoInput;
@@ -44,6 +46,9 @@
 
     // 撮影開始
     [self setupAVCapture];
+
+    // TODO : Device Motionで回転データを取得できるようにする
+    // TODO : 回転データ受け取ったら差分をラベルに表示できるようにする
 }
 /**
  *  メモリ不足

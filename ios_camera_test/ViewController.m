@@ -12,12 +12,16 @@
 #import <CoreMotion/CoreMotion.h>
 #import <MessageUI/MessageUI.h>
 
+#import "Posture.h"
+
 @interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, MFMailComposeViewControllerDelegate> {
     BOOL _isShooting;
     BOOL _isSelectImage;
     __weak IBOutlet UIImageView* _previewImageView;
 
     CMMotionManager* _motionManager;
+
+    Posture* _posture;
 }
 
 @end
@@ -49,6 +53,9 @@
     NSOperationQueue* queue = [[NSOperationQueue alloc] init];
     [_motionManager startDeviceMotionUpdatesToQueue:queue
                                         withHandler:^(CMDeviceMotion* motion, NSError* error) {
+                                            CMAttitude* attr = motion.attitude;
+                                            _posture.rotation = [[Rotation alloc] initWithYaw:attr.yaw pitch:attr.pitch roll:attr.roll];
+                                            
                                             double pitchDegree = motion.attitude.pitch * 180.0 / M_PI;
                                             double rollDegree = motion.attitude.roll * 180.0 / M_PI;
                                             double yawDegree = motion.attitude.yaw * 180.0 / M_PI;

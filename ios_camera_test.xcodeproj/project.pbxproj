@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F14E69218E5300A001353B7 /* Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F14E69118E5300A001353B7 /* Rotation.m */; };
+		2F14E69318E5300A001353B7 /* Rotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F14E69118E5300A001353B7 /* Rotation.m */; };
+		2F14E69618E53142001353B7 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F14E69518E53142001353B7 /* Position.m */; };
+		2F14E69718E53142001353B7 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F14E69518E53142001353B7 /* Position.m */; };
+		2F14E69A18E5363D001353B7 /* PostureDisplayDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F14E69918E5363D001353B7 /* PostureDisplayDto.m */; };
+		2F14E69B18E5363D001353B7 /* PostureDisplayDto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F14E69918E5363D001353B7 /* PostureDisplayDto.m */; };
 		2F1C14F218E2918800526418 /* ExtractPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1C14F118E2918800526418 /* ExtractPreviewView.m */; };
 		2F1C14F418E2963E00526418 /* eraser@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2F1C14F318E2963E00526418 /* eraser@2x.png */; };
 		2F1C14F718E297FD00526418 /* ExtractPreview.m in Sources */ = {isa = PBXBuildFile; fileRef = 2F1C14F618E297FD00526418 /* ExtractPreview.m */; };
@@ -45,6 +51,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F14E69018E5300A001353B7 /* Rotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Rotation.h; sourceTree = "<group>"; };
+		2F14E69118E5300A001353B7 /* Rotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Rotation.m; sourceTree = "<group>"; };
+		2F14E69418E53142001353B7 /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Position.h; sourceTree = "<group>"; };
+		2F14E69518E53142001353B7 /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Position.m; sourceTree = "<group>"; };
+		2F14E69818E5363D001353B7 /* PostureDisplayDto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostureDisplayDto.h; sourceTree = "<group>"; };
+		2F14E69918E5363D001353B7 /* PostureDisplayDto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostureDisplayDto.m; sourceTree = "<group>"; };
 		2F1C14F018E2918800526418 /* ExtractPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExtractPreviewView.h; sourceTree = "<group>"; };
 		2F1C14F118E2918800526418 /* ExtractPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExtractPreviewView.m; sourceTree = "<group>"; };
 		2F1C14F318E2963E00526418 /* eraser@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "eraser@2x.png"; sourceTree = "<group>"; };
@@ -112,6 +124,14 @@
 		2F379BE118E2E6F5005F12C7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				545FCD2F18E32FB0002A81C6 /* Posture.h */,
+				545FCD3018E32FB0002A81C6 /* Posture.m */,
+				2F14E69018E5300A001353B7 /* Rotation.h */,
+				2F14E69118E5300A001353B7 /* Rotation.m */,
+				2F14E69418E53142001353B7 /* Position.h */,
+				2F14E69518E53142001353B7 /* Position.m */,
+				2F14E69818E5363D001353B7 /* PostureDisplayDto.h */,
+				2F14E69918E5363D001353B7 /* PostureDisplayDto.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -185,8 +205,6 @@
 				2F379BE218E2E6FB005F12C7 /* Controllers */,
 				2F379BE318E2E702005F12C7 /* Views */,
 				2F4EB35D18E26E05004FB168 /* Supporting Files */,
-				545FCD2F18E32FB0002A81C6 /* Posture.h */,
-				545FCD3018E32FB0002A81C6 /* Posture.m */,
 			);
 			path = ios_camera_test;
 			sourceTree = "<group>";
@@ -323,8 +341,11 @@
 				2F1C14F718E297FD00526418 /* ExtractPreview.m in Sources */,
 				2F8ACA1918E2797500EF1B8B /* ImageExtractViewController.m in Sources */,
 				2F1C14F218E2918800526418 /* ExtractPreviewView.m in Sources */,
+				2F14E69618E53142001353B7 /* Position.m in Sources */,
 				2F4EB36D18E26E05004FB168 /* ViewController.m in Sources */,
+				2F14E69218E5300A001353B7 /* Rotation.m in Sources */,
 				2F4EB36718E26E05004FB168 /* AppDelegate.m in Sources */,
+				2F14E69A18E5363D001353B7 /* PostureDisplayDto.m in Sources */,
 				2F4EB36318E26E05004FB168 /* main.m in Sources */,
 				2F76538E18E3E3A800859D0F /* PlaceSimulateViewController.m in Sources */,
 			);
@@ -336,6 +357,9 @@
 			files = (
 				545FCD3218E32FB0002A81C6 /* Posture.m in Sources */,
 				2F4EB38218E26E05004FB168 /* ios_camera_testTests.m in Sources */,
+				2F14E69718E53142001353B7 /* Position.m in Sources */,
+				2F14E69B18E5363D001353B7 /* PostureDisplayDto.m in Sources */,
+				2F14E69318E5300A001353B7 /* Rotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
