@@ -14,9 +14,9 @@
     CGPoint _beginPoint;
     CGPoint _endPoint;
     BOOL _isDragging;
-    __weak IBOutlet UIImageView* _targetImageView;
 
-    __weak IBOutlet ExtractPreviewView* _extractPreviewView;
+    UIImageView* _targetImageView;
+    ExtractPreviewView* _extractPreviewView;
 }
 
 @end
@@ -37,8 +37,16 @@
 {
     [super viewDidLoad];
 
-    // 呼び出し元から受け取った画像を表示
-    [_targetImageView setImage:self.editTargetImage];
+    // 呼び出し元から受け取った画像の大きさにあったImageViewを作成する
+    CGRect frame = CGRectMake(0, 0, 320, 320);
+    _targetImageView = [[UIImageView alloc] initWithFrame:frame];
+    _targetImageView.image = self.editTargetImage;
+    [self.view addSubview:_targetImageView];
+
+    // 画像の大きさと同じExtractPreviewViewを作成する
+    _extractPreviewView = [[ExtractPreviewView alloc] initWithFrame:_targetImageView.frame];
+    _extractPreviewView.backgroundColor = [UIColor clearColor];
+    [self.view addSubview:_extractPreviewView];
 }
 
 /**
@@ -99,9 +107,13 @@
     CGContextSetFillColorWithColor(c, [[UIColor whiteColor] CGColor]);
     CGContextFillRect(c, _extractPreviewView.bounds);
 
-    // 中央に黒円を塗りつぶし描画
+    // 抽出ビュー選択範囲を黒円を塗りつぶし描画
     CGContextSetFillColorWithColor(c, [[UIColor blackColor] CGColor]);
-    CGContextFillEllipseInRect(c, CGRectMake(_extractPreviewView.begin.x, _extractPreviewView.begin.y, _extractPreviewView.end.x - _extractPreviewView.begin.x, _extractPreviewView.end.y - _extractPreviewView.begin.y));
+    CGRect ellipseRect = CGRectMake(_extractPreviewView.begin.x,
+                                    _extractPreviewView.begin.y,
+                                    _extractPreviewView.end.x - _extractPreviewView.begin.x,
+                                    (_extractPreviewView.end.y - _extractPreviewView.begin.y));
+    CGContextFillEllipseInRect(c, ellipseRect);
 
     // サーフェイスをUIImage
     UIImage* maskImage = UIGraphicsGetImageFromCurrentImageContext();

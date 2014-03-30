@@ -156,6 +156,7 @@
 
     // 画像取得後に編集するかどうか（デフォルトはNO）
     imagePickerController.allowsEditing = YES;
+    //    imagePickerController.showsCameraControls = NO;
 
     _isShooting = YES;
     _isSelectImage = NO;
