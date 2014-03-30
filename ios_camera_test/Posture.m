@@ -37,4 +37,17 @@
                                     Position:diffPos];
 }
 
+/**
+*  記述
+*
+*  @return
+*/
+- (NSString*)description
+{
+    NSString* rotDesc = [self.rotation description];
+    NSString* posDesc = [self.position description];
+    
+    return [NSString stringWithFormat:@"%@ %@", rotDesc, posDesc];
+}
+
 @end

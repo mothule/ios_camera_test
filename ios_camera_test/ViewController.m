@@ -32,6 +32,8 @@
 {
     [super viewDidLoad];
 
+    _posture = [[Posture alloc] init];
+
     _motionManager = [[CMMotionManager alloc] init];
     _motionManager.deviceMotionUpdateInterval = 1.0 / 1.0; // 1Hzサンプリング
 }
@@ -225,6 +227,7 @@
     } else if ([segue.identifier isEqualToString:@"simulate"]) {
         PlaceSimulateViewController* ctrl = [segue destinationViewController];
         ctrl.combineImage = _previewImageView.image;
+        ctrl.targetPosture = _posture;
     }
 }
 

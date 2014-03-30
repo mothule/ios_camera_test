@@ -12,6 +12,6 @@
 @interface PlaceSimulateViewController : UIViewController
 
 @property (nonatomic, strong) UIImage* combineImage;
-@property (nonatomic, weak) Posture* posture;
+@property (nonatomic, weak) Posture* targetPosture;
 
 @end

@@ -35,4 +35,14 @@
                                      axisY:self.y - position.y];
 }
 
+/**
+ *  記述
+ *
+ *  @return
+ */
+- (NSString*)description
+{
+    return [NSString stringWithFormat:@"%04.1f %04.1f", self.y, self.z];
+}
+
 @end

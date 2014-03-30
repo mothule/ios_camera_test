@@ -8,6 +8,7 @@
 
 #import "Rotation.h"
 
+
 @implementation Rotation
 
 /**
@@ -40,6 +41,16 @@
     return [[Rotation alloc] initWithYaw:self.yaw - rotation.yaw
                                    pitch:self.pitch - rotation.pitch
                                     roll:self.roll - rotation.roll];
+}
+
+/**
+ *  記述
+ *
+ *  @return
+ */
+- (NSString*)description
+{
+    return [NSString stringWithFormat:@"Y:%04.0f X:%04.0f Z:%04.0f", RadToDeg(self.yaw), RadToDeg(self.pitch), RadToDeg(self.roll)];
 }
 
 @end
