@@ -12,12 +12,16 @@
 #import <CoreMotion/CoreMotion.h>
 #import <MessageUI/MessageUI.h>
 
+#import "Posture.h"
+
 @interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, MFMailComposeViewControllerDelegate> {
     BOOL _isShooting;
     BOOL _isSelectImage;
     __weak IBOutlet UIImageView* _previewImageView;
 
     CMMotionManager* _motionManager;
+
+    Posture* _posture;
 }
 
 @end
@@ -27,6 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    _posture = [[Posture alloc] init];
 
     _motionManager = [[CMMotionManager alloc] init];
     _motionManager.deviceMotionUpdateInterval = 1.0 / 1.0; // 1Hzサンプリング
@@ -49,6 +55,9 @@
     NSOperationQueue* queue = [[NSOperationQueue alloc] init];
     [_motionManager startDeviceMotionUpdatesToQueue:queue
                                         withHandler:^(CMDeviceMotion* motion, NSError* error) {
+                                            CMAttitude* attr = motion.attitude;
+                                            _posture.rotation = [[Rotation alloc] initWithYaw:attr.yaw pitch:attr.pitch roll:attr.roll];
+                                            
                                             double pitchDegree = motion.attitude.pitch * 180.0 / M_PI;
                                             double rollDegree = motion.attitude.roll * 180.0 / M_PI;
                                             double yawDegree = motion.attitude.yaw * 180.0 / M_PI;
@@ -220,6 +229,7 @@
     } else if ([segue.identifier isEqualToString:@"simulate"]) {
         PlaceSimulateViewController* ctrl = [segue destinationViewController];
         ctrl.combineImage = _previewImageView.image;
+        ctrl.targetPosture = _posture;
     }
 }
 

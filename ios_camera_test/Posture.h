@@ -7,14 +7,29 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Rotation.h"
+#import "Position.h"
+#import "PostureDisplayDto.h"
 
 /**
 *  撮影時の姿勢.
 */
 @interface Posture : NSObject
-@property (nonatomic, assign) float yaw;
-@property (nonatomic, assign) float pitch;
-@property (nonatomic, assign) float roll;
-@property (nonatomic, assign) float distance; // 対象物との距離
-@property (nonatomic, assign) float height; // 撮影時の高さ
+@property (nonatomic, strong) Rotation* rotation; // Yaw Pitch Roll
+@property (nonatomic, strong) Position* position; // カメラと対象物との位置
+
+/**
+ *  初期化
+ */
+- (instancetype)initWithRotation:(Rotation*)rot Position:(Position*)pos;
+
+/**
+ *  渡された姿勢との差分姿勢を返す
+ *
+ *  @param posture 対象姿勢オブジェクト
+ *
+ *  @return 差分姿勢
+ */
+- (Posture*)differenceBetweenPosture:(Posture*)posture;
+
 @end
