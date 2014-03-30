@@ -156,6 +156,7 @@
 
     // 画像取得後に編集するかどうか（デフォルトはNO）
     imagePickerController.allowsEditing = YES;
+    //    imagePickerController.showsCameraControls = NO;
 
     _isShooting = YES;
     _isSelectImage = NO;
@@ -211,6 +212,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue*)segue sender:(id)sender
 {
+    NSLog(@"Segue Name is %@", segue.identifier);
     if ([segue.identifier isEqualToString:@"edit"]) {
         ImageExtractViewController* ctrl = [segue destinationViewController];
         ctrl.editTargetImage = _previewImageView.image;
